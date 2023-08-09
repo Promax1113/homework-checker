@@ -1,20 +1,23 @@
 from fernet import Fernet
 import hashlib
+from getpass import getpass
 
 import os
 import base64
 
 from . import password_check
 
-def login(username, password):
-    result = password_check.password_check(username, password)
-    if result == 403:
-        return "Acess Denied!"
-    elif result == 200:
-        return "Access Granted!"
-    elif result == "Saved login!":
+def login():
+    result = False
+
+    while not result == 200 or result is None:
+        username = input("Username: ")
+        while " " in username:
+            print("Username cannot contain spaces!")
+            username = input("Username: ")
+        password = getpass("Password: ")
+        result = password_check.password_check(username, password)
         return result
-    else:
-        raise Exception(f"Password check returned {result} and did not match any option.") 
+
 
 
