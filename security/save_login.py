@@ -8,6 +8,6 @@ def save_login_details(username, password):
         pass_hash = hashlib.sha256(bytes(pass_text, "utf-8"))
         f.write(pass_hash.hexdigest())
         f.close()
-    return "Saved login!"
+    return 204
 
 
