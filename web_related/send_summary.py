@@ -11,7 +11,7 @@ def send_email(content, email):
 
     message = Mail(
         from_email='homeworkcheckerpython@proton.me',
-        to_emails='aatenorio.estruch@gmail.com',
+        to_emails=email,
         subject='Sending with Twilio SendGrid is Fun',
         html_content=f'{content}')
 
