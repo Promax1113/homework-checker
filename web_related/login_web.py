@@ -7,20 +7,21 @@ from data_processing import make_summary
 
 class HomeworkItem:
     def __init__(self):
-        self.name = "Sample"
-        self.course = "Sample Course"
-        self.due_date = "Sample Date"
-        self.homework_type = "Sample Work"
-        self.link = 
+        self.__name = "Sample"
+        self.__course = "Sample Course"
+        self.__due_date = "Sample Date"
+        self.__homework_type = "Sample Work"
+        self.__link = "http://localhost:8000"
 
     def get_all(self):
-        return {"name": self.name, "course": self.course, "due_date": self.due_date, "type": self.homework_type}
+        return {"name": self.__name, "course": self.__course, "due_date": self.__due_date, "type": self.__homework_type, "link": self.__link}
 
-    def set_all(self, _name, _course,_due_date, _type):
-        self.name = _name
-        self.course = _course
-        self.due_date = _due_date
-        self.homework_type = _type
+    def set_all(self, _name, _course, _due_date, _type, _link):
+        self.__name = _name
+        self.__course = _course
+        self.__due_date = _due_date
+        self.__homework_type = _type
+        self.__link = _link
 
 
 def login_to_web(url, username, password):
@@ -40,9 +41,20 @@ def login_to_web(url, username, password):
     driver.find_element(By.XPATH, '/html/body/div[2]/div[2]/div/main/div/div/div/form/div[2]/div[4]/span').click()
     driver.implicitly_wait(12)
     driver.find_element(By.XPATH, '/html/body/app-root/app-after-login/div/mat-sidenav-container/mat-sidenav-content/div/app-student-home-tabs/mat-tab-group/mat-tab-header/div/div/div/div[2]').click()
-    make_summary()
+    # Pretend im getting elements from a list bruh
+    #  * Gets elements *
+    elements = ["baller"]
+    homework = []
+    # TODO This is placeholder, I can't access my homework yet.
+    for _item in elements:
+        _item = HomeworkItem()
+        _item.set_all("s", "s", "1969", "baller", "1234")
+        homework.append(_item)
+
+    make_summary(homework)
+
+    #
     # if driver.find_element(By.XPATH, '/html/body/app-root/app-after-login/div/mat-sidenav-container/mat-sidenav-content/div/app-student-home-tabs/div[1]/app-student-to-do/mat-card/app-to-do-list/div[1]/div/h3'):
     #     print("No tasks due!")
     # else:
     #     pass
-
