@@ -8,7 +8,7 @@ I have been using the Cosmos app, every Monday they put the homework there, and 
 It uses Selenium in harmony with a bunch of other libraries to log in to YOUR Colegia user and check the homework for you. It provides two modes, the email, and the console mode.
 
 #### Email
-It is currently, disabled. You also need a SendGrid account with a verified email, and it's a hassle. SendGrid does not permit the API key to go public, they just delete it, and I can't do anything about it. I want to keep my code open source, so I can't keep this mode available.
+It is currently disabled. You also need a SendGrid account with a verified email, and it's a hassle. SendGrid does not permit the API key to go public, they just delete it, and I can't do anything about it. I want to keep my code open source, so I can't keep this mode available.
 
 #### Console-based
 This is the primary mode of this project. It prints your homework with its due date and a link to its corresponding page.
