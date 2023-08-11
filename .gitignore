@@ -162,4 +162,5 @@ cython_debug/
 /pass.hash
 /venv/
 /data
-"sendgrid.env" 
+"sendgrid.env"
+/.DS_Store 

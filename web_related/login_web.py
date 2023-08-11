@@ -41,20 +41,24 @@ def login_to_web(url, username, password):
     driver.find_element(By.XPATH, '/html/body/div[2]/div[2]/div/main/div/div/div/form/div[2]/div[4]/span').click()
     driver.implicitly_wait(12)
     driver.find_element(By.XPATH, '/html/body/app-root/app-after-login/div/mat-sidenav-container/mat-sidenav-content/div/app-student-home-tabs/mat-tab-group/mat-tab-header/div/div/div/div[2]').click()
+    try: 
+        tasks = driver.find_element(By.XPATH, '/html/body/app-root/app-after-login/div/mat-sidenav-container/mat-sidenav-content/div/app-student-home-tabs/div[1]/app-student-to-do/mat-card/app-to-do-list/div[1]/div/h3').text
+        print("No tasks due!")
+    except:
+        print("You got homework...")
+        print("Making summary...")
+        elements = ["baller"]
+        homework = []
+        # TODO This is placeholder, I can't access my homework yet.
+        for _item in elements:
+            _item = HomeworkItem()
+            _item.set_all("s", "s", "1969", "baller", "1234")
+            homework.append(_item)
     # Pretend im getting elements from a list bruh
     #  * Gets elements *
-    elements = ["baller"]
-    homework = []
-    # TODO This is placeholder, I can't access my homework yet.
-    for _item in elements:
-        _item = HomeworkItem()
-        _item.set_all("s", "s", "1969", "baller", "1234")
-        homework.append(_item)
+    
 
     make_summary(homework)
 
-    #
-    # if driver.find_element(By.XPATH, '/html/body/app-root/app-after-login/div/mat-sidenav-container/mat-sidenav-content/div/app-student-home-tabs/div[1]/app-student-to-do/mat-card/app-to-do-list/div[1]/div/h3'):
-    #     print("No tasks due!")
-    # else:
-    #     pass
+    
+    
