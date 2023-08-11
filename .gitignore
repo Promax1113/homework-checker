@@ -162,3 +162,4 @@ cython_debug/
 /pass.hash
 /venv/
 /data
+"sendgrid.env" 

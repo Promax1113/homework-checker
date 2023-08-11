@@ -38,4 +38,7 @@ def read_password():
     password = (fernet_k.decrypt(data[1].encode())).decode()
 
 
-    return {"username": username,"password": password}
+    return {
+        "username": username,
+        "password": password
+    }
