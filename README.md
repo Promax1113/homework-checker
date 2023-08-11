@@ -17,7 +17,7 @@ This is the primary mode of this project. It prints your homework with its due d
 It will ask you about your login details, they are saved using encryption and hashes, so the password you use to log in to this program isn't stored as plaintext, after that Selenium's Webdriver will open a hidden Chrome tab and will fetch your homework for you.
 
 #### Don't trust me?
-It's ok, you can check the code. If you see any security vulnerability, DM me on Twitter.
+It's ok, you can check the code. If you see any security vulnerability, DM me on Twitter [@promax1113](https://twitter.com/promax1113).
 Your data is encrypted using symmetric encryption and the key is your username and password. These are saved in a hash after encrypting your Colegia details so when you login into the program a hash of the entered username and password is compared with the one saved, therefore no sensitive information is displayed as plaintext.
 
 ## Let's get to the big stuff, how do I run it?
