@@ -1,4 +1,4 @@
-# Homework Checker
+# **Homework Checker**
 #### The program that will solve all the hassle of going to Cosmos and checking your homework.
 
 ### Backstory
