@@ -24,7 +24,7 @@ It will ask you about your login details, they are saved using encryption and ha
 
 ## Don't trust me?
 
-It's OK, you can check the code. If you happen to notice any security flaws, kindly send me a direct message on Twitter at [@promax1113](https://twitter.com/promax1113). Your data is encrypted using symmetric encryption and the key is your username and password. These are saved in a hash after encrypting your Colegia details so when you login into the program a hash of the entered username and password is compared with the one saved, therefore no sensitive information is displayed in plaintext. Encrypting and decrypting are only available after you have entered your username and password, which makes this program secure. However, I cannot guarantee that the encryption or hashes are unbreakable. 
+It's OK, you can check the code. If you happen to notice any security flaws, kindly send me a direct message on Twitter at [@promax1113](https://twitter.com/promax1113). Your data is encrypted using symmetric encryption, and the key is your username and password. These are saved in a hash after encrypting your Colegia details so when you login into the program a hash of the entered username and password is compared with the one saved, therefore no sensitive information is displayed in plaintext. Encrypting and decrypting are only available after you have entered your username and password, which makes this program secure. However, I cannot guarantee that the encryption or hashes are unbreakable. 
 
 ### Let's get to the big stuff, how do I run it?
 
