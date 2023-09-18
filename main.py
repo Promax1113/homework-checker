@@ -9,7 +9,7 @@ from web_related import login_to_web
 def result_checker(x):
     if x == 200:
         return "Success!"
-    elif x == 403:
+    elif x == 401:
         return "Failure"
     elif x == 204:
         return "Saved!"
