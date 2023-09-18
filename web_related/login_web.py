@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from bs4 import BeautifulSoup
 
 from data_processing import make_summary
 
@@ -47,6 +48,10 @@ def login_to_web(url, username, password):
     except:
         print("You got homework...")
         print("Making summary...")
+        print(driver.page_source)
+        page = BeautifulSoup(driver.page_source, "html.parser") 
+        print(page)  
+        print(page.prettify())     
         elements = ["baller"]
         homework = []
         # TODO This is placeholder, I can't access my homework yet.
