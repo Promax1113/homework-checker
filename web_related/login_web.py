@@ -7,22 +7,16 @@ from data_processing import make_summary
 
 
 class HomeworkItem:
-    def __init__(self):
-        self.__name = "Sample"
-        self.__course = "Sample Course"
-        self.__due_date = "Sample Date"
-        self.__homework_type = "Sample Work"
-        self.__link = "http://localhost:8000"
+    def __init__(self, hw_data:dict):
+        self.__name = hw_data['name']
+        self.__course = hw_data['course']
+        self.__due_date = hw_data['due_date']
+        self.__homework_type = hw_data['type']
+        self.__link = hw_data['link']
 
     def get_all(self):
         return {"name": self.__name, "course": self.__course, "due_date": self.__due_date, "type": self.__homework_type, "link": self.__link}
 
-    def set_all(self, _name, _course, _due_date, _type, _link):
-        self.__name = _name
-        self.__course = _course
-        self.__due_date = _due_date
-        self.__homework_type = _type
-        self.__link = _link
 
 
 def login_to_web(url, username, password):
@@ -31,6 +25,7 @@ def login_to_web(url, username, password):
 
     chrome.add_argument("--headless")
     chrome.add_argument("--disable-gpu")
+    chrome.add_experimental_option('excludeSwitches', ['enable-logging'])
 
     driver = webdriver.Chrome(options=chrome)
 
@@ -48,22 +43,21 @@ def login_to_web(url, username, password):
     except:
         print("You got homework...")
         print("Making summary...")
-        print(driver.page_source)
-        page = BeautifulSoup(driver.page_source, "html.parser") 
-        print(page)  
-        print(page.prettify())     
-        elements = ["baller"]
-        homework = []
-        # TODO This is placeholder, I can't access my homework yet.
-        for _item in elements:
-            _item = HomeworkItem()
-            _item.set_all("s", "s", "1969", "baller", "1234")
-            homework.append(_item)
-    # Pretend im getting elements from a list bruh
-    #  * Gets elements *
+        page = BeautifulSoup(driver.find_element(By.XPATH, '/html/body/app-root/app-after-login/div/mat-sidenav-container/mat-sidenav-content/div/app-student-home-tabs/div[1]/app-student-to-do/mat-card/app-to-do-list/div[1]/div/mat-nav-list').get_attribute('innerHTML'), "html.parser") 
+        print(page.prettify())
+        homework_list = []
+        for a_element in page.find_all("a", { "class":"mat-mdc-list-item mdc-list-item to-do-item mat-mdc-list-item-interactive mdc-list-item--with-leading-icon mdc-list-item--with-three-lines ng-star-inserted"}):
+            link = a_element.get('href')
+            span_element = a_element.find('span', class_='mdc-list-item__content')
+            if span_element:
+                homework_list.append({'name': span_element.find('h3').get_text(strip = True), 'course': span_element.find('p', class_='mat-mdc-list-item-line mdc-list-item__secondary-text app-foreground-secondary-text secondary to-do-course-title').get_text(strip = True), 'due_date': span_element.find('p', class_='mat-mdc-list-item-line mdc-list-item__secondary-text app-foreground-secondary-text secondary to-do-date').get_text(strip = True).strip('Due: '),'type':'assignment', 'link':link})
+        homework_list_objs: list = []
+        for hw in homework_list:
+            item = HomeworkItem(hw)
+            homework_list_objs.append(item)
     
 
-    make_summary(homework)
+    make_summary(homework_list_objs)
 
     
     

@@ -20,6 +20,6 @@ def password_check(username, password):
         if pass_user_hash.hexdigest() == file_pass:
             return 200
         else:
-            return 403
+            return 401
     else:
         return save_login.save_login_details(password=password, username=username)

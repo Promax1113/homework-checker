@@ -24,7 +24,7 @@ if __name__ == "__main__":
     result = login()
     result_checker(result)
     print(f"\n{result_checker(result)}\n")
-    while result == 403:
+    while result == 401:
         result = login()
         print(f"\n{result_checker(result)}\n")
     if not os.path.isfile(f"{userpath}/data/passfile.passfile"):
