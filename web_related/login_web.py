@@ -44,10 +44,8 @@ def login_to_web(url, username, password):
         print("You got homework...")
         print("Making summary...")
         page = BeautifulSoup(driver.find_element(By.XPATH, '/html/body/app-root/app-after-login/div/mat-sidenav-container/mat-sidenav-content/div/app-student-home-tabs/div[1]/app-student-to-do/mat-card/app-to-do-list/div[1]/div/mat-nav-list').get_attribute('innerHTML'), "html.parser") 
-        print(page.prettify())
         homework_list = []
         for a_element in page.find_all("a", { "class":"mat-mdc-list-item mdc-list-item to-do-item mat-mdc-list-item-interactive mdc-list-item--with-leading-icon mdc-list-item--with-three-lines ng-star-inserted"}):
-            link = a_element.get('href')
             span_element = a_element.find('span', class_='mdc-list-item__content')
             if span_element:
                 homework_list.append({'name': span_element.find('h3').get_text(strip = True), 'course': span_element.find('p', class_='mat-mdc-list-item-line mdc-list-item__secondary-text app-foreground-secondary-text secondary to-do-course-title').get_text(strip = True), 'due_date': span_element.find('p', class_='mat-mdc-list-item-line mdc-list-item__secondary-text app-foreground-secondary-text secondary to-do-date').get_text(strip = True).strip('Due: '),'type':'assignment', 'link':link})
