@@ -45,11 +45,13 @@ def login_to_web(url, username, password):
         print('\nYour current login details were removed since they were incorrect!\n')
         return None
     except:
+        print('\nLogged in!\n')
         driver.find_element(By.XPATH, '/html/body/app-root/app-after-login/div/mat-sidenav-container/mat-sidenav-content/div/app-student-home-tabs/mat-tab-group/mat-tab-header/div/div/div/div[2]').click()
         try: 
             tasks = driver.find_element(By.XPATH, '/html/body/app-root/app-after-login/div/mat-sidenav-container/mat-sidenav-content/div/app-student-home-tabs/div[1]/app-student-to-do/mat-card/app-to-do-list/div[1]/div/h3').text
-            print("\nNo tasks due!\n")
-            exit(0)
+            if tasks:
+                print("\nNo tasks due!\n")
+                return None
         except:
             print("You got homework...")
             print("Making summary...")
@@ -61,7 +63,7 @@ def login_to_web(url, username, password):
                     homework_list.append(HomeworkItem({'name': span_element.find('h3').get_text(strip = True), 'course': span_element.find('p', class_='mat-mdc-list-item-line mdc-list-item__secondary-text app-foreground-secondary-text secondary to-do-course-title').get_text(strip = True), 'due_date': span_element.find('p', class_='mat-mdc-list-item-line mdc-list-item__secondary-text app-foreground-secondary-text secondary to-do-date').get_text(strip = True).strip('Due: '),'type':'assignment'}))
         
 
-        make_summary(homework_list)
+            make_summary(homework_list)
 
     
     
