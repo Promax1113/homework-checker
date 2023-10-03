@@ -4,4 +4,4 @@ def make_summary(homework_list):
     for item in homework_list:
         index += 1
         info = item.get_all()
-        print(f"{index}. Name: {info['name']}\nCourse: {info['course']}\nDue: {info['due_date']}\nLink: {info['link']}")
+        print(f"{index}. Name: {info['name']}\nCourse: {info['course']}\nDue: {info['due_date']}\n")

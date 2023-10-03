@@ -15,7 +15,7 @@ class HomeworkItem:
         self.__link = hw_data['link']
 
     def get_all(self):
-        return {"name": self.__name, "course": self.__course, "due_date": self.__due_date, "type": self.__homework_type, "link": self.__link}
+        return {"name": self.__name, "course": self.__course, "due_date": self.__due_date, "type": self.__homework_type}
 
 
 
@@ -44,7 +44,6 @@ def login_to_web(url, username, password):
         print("You got homework...")
         print("Making summary...")
         page = BeautifulSoup(driver.find_element(By.XPATH, '/html/body/app-root/app-after-login/div/mat-sidenav-container/mat-sidenav-content/div/app-student-home-tabs/div[1]/app-student-to-do/mat-card/app-to-do-list/div[1]/div/mat-nav-list').get_attribute('innerHTML'), "html.parser") 
-        print(page.prettify())
         homework_list = []
         for a_element in page.find_all("a", { "class":"mat-mdc-list-item mdc-list-item to-do-item mat-mdc-list-item-interactive mdc-list-item--with-leading-icon mdc-list-item--with-three-lines ng-star-inserted"}):
             link = a_element.get('href')
