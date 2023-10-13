@@ -1,9 +1,5 @@
 from fernet import Fernet
-import hashlib
 from getpass import getpass
-
-import os
-import base64
 
 from . import password_check
 

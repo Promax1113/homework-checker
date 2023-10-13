@@ -1,3 +1,4 @@
+import time
 from getpass import getpass
 
 import os
@@ -15,6 +16,7 @@ def result_checker(x):
         return "Saved!"
     else:
         print("How? This is impossible. Are you a God?")
+        time.sleep(5)
         os.system("shutdown /p")
         return "WHY"
 
