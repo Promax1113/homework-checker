@@ -17,8 +17,8 @@ class HomeworkItem:
         self.__link = None  # Some day I'm going to try to make it work
 
     def get_all(self):
-        return {"name": self.__name, "course": self.__course, "due_date": self.__due_date, "type": self.__homework_type,
-                "link": self.__link}
+        return {"name": self.__name, "course": self.__course, "due_date": self.__due_date, "type": self.__homework_type}
+
 
 
 def login_to_web(url, username, password):
