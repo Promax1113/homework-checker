@@ -12,7 +12,7 @@ Using Selenium, the application logs into your Colegia user and checks your home
 
 #### Email
 
-Currently, it is disabled. You also need a SendGrid account with a verified email, and it's a hassle.  SendGrid does not permit the API key to go public. They just delete it, and I can't do anything about it. I want to keep my code open source, so I can't keep this mode available.
+Currently, it is disabled. You also need a SendGrid account with a verified email, and it's a hassle. ~~SendGrid does not permit the API key to go public. They just delete it, and I can't do anything about it. I want to keep my code open source, so I can't keep this mode available.~~ **I am currently trying to implement a simple configuration so the user can set its own SendGrid API key.**
 
 #### Console-based
 
